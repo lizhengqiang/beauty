@@ -9,6 +9,8 @@ consistent return results for macaron
 
 ## Use
 
+> go get -u github.com/mougeli/beauty
+
 ```golang
 m.Use(beauty.Render())
 
