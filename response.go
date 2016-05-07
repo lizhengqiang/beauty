@@ -39,5 +39,5 @@ func NewUnknownErrResp(err error) (resp ErrResp) {
 }
 
 func NewErrResp(code int64, err error) (resp ErrResp) {
-	return &ErrResp{Resp{code, err.Error()}}
+	return ErrResp{Resp{code, err.Error()}}
 }
