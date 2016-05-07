@@ -11,7 +11,7 @@ var (
 )
 
 var (
-	OK Resp = Resp{Code: 0, Msg: "OK"}
+	OK             Resp    = Resp{Code: 0, Msg: "OK"}
 	UnknownErrResp ErrResp = NewUnknownErrResp(UnknownErr)
 )
 

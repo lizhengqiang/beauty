@@ -1,15 +1,15 @@
 package beauty
 
 import (
-	"errors"
 	"encoding/json"
+	"errors"
 )
 
 import (
 	"gopkg.in/macaron.v1"
 )
 
-type R interface {
+type Render interface {
 	OK(data interface{})
 	Error(err interface{})
 	Interface(data interface{})
@@ -82,8 +82,8 @@ func (this BeautyRender) Interface(data interface{}) {
 }
 
 // 注册用
-func Render() macaron.Handler {
+func Renderer() macaron.Handler {
 	return func(ctx *macaron.Context) {
-		ctx.MapTo(&BeautyRender{ctx}, (*R)(nil))
+		ctx.MapTo(&BeautyRender{ctx}, (*Render)(nil))
 	}
 }
