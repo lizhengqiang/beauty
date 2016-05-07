@@ -9,7 +9,7 @@ import (
 	"gopkg.in/macaron.v1"
 )
 
-type Render interface {
+type R interface {
 	OK(data interface{})
 	Error(err interface{})
 	Interface(data interface{})
@@ -84,6 +84,6 @@ func (this BeautyRender) Interface(data interface{}) {
 // 注册用
 func Render() macaron.Handler {
 	return func(ctx *macaron.Context) {
-		ctx.MapTo(&BeautyRender{ctx}, (*Render)(nil))
+		ctx.MapTo(&BeautyRender{ctx}, (*R)(nil))
 	}
 }
