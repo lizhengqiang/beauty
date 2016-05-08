@@ -1,6 +1,9 @@
 package beauty
 
-import "qiniupkg.com/x/errors.v7"
+import (
+	"encoding/json"
+	"qiniupkg.com/x/errors.v7"
+)
 
 var (
 	UnknownCode int64 = -1
@@ -27,6 +30,19 @@ type DataResp struct {
 
 type ErrResp struct {
 	Resp
+}
+
+func (e ErrResp) Error() string {
+	bytes, err := json.Marshal(e)
+	if err != nil {
+		return err.Error()
+
+	}
+	return string(bytes)
+}
+
+func (e *ErrResp) Marshal() ([]byte, error) {
+	return json.Marshal(e)
 }
 
 type Response interface {

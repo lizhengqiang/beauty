@@ -11,5 +11,4 @@ type Service struct {
 
 func (this *Service) Handler(pattern string, h ...macaron.Handler) {
 	this.Ctx.Get(pattern, h)
-
 }
