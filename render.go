@@ -21,10 +21,6 @@ type BeautyRender struct {
 
 // 支持string,error,ErrorResponse三种参数
 func (this BeautyRender) Error(err interface{}) {
-	if resp, ok := err.(ErrResp); ok {
-		this.Ctx.JSON(200, resp)
-		return
-	}
 	switch err.(type) {
 	case ErrResp:
 		this.Ctx.JSON(200, err)
